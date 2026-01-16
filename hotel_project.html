@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hotel Paradise</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+body{background:#f2f2f2}
+
+/* HEADER */
+header{
+  background:url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb");
+  background-size:cover;
+  background-position:center;
+  color:white;
+  padding:60px 20px;
+  text-align:center;
+}
+header h1{
+  background:rgba(0,0,0,0.6);
+  display:inline-block;
+  padding:10px 20px;
+  border-radius:6px;
+}
+
+/* NAV */
+nav{
+  background:#2c3e50;
+  text-align:center;
+  padding:10px;
+}
+nav button{
+  padding:10px 14px;
+  margin:5px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+nav button:hover{
+  background:#f39c12;
+  color:white;
+}
+
+/* SECTIONS */
+.section{display:none;padding:25px}
+.section.active{display:block}
+
+/* COMMON */
+.card{
+  background:white;
+  padding:20px;
+  border-radius:8px;
+  max-width:1100px;
+  margin:auto;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+  margin-top:15px;
+}
+img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+/* BUTTONS */
+.small-btn{
+  padding:8px 12px;
+  margin:5px;
+  border:none;
+  cursor:pointer;
+  background:#3498db;
+  color:white;
+}
+
+/* FOOTER */
+footer{
+  background:#2c3e50;
+  color:white;
+  text-align:center;
+  padding:10px;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🏨 Hotel Paradise</h1>
+<p>Level-2 Extended College Project</p>
+</header>
+
+<nav>
+<button onclick="show('home')">Home</button>
+<button onclick="show('rooms')">Rooms</button>
+<button onclick="show('food')">Food</button>
+<button onclick="show('staff')">Staff</button>
+<button onclick="show('booking')">Booking</button>
+<button onclick="show('contact')">Contact</button>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="section active">
+<div class="card">
+<h2>Welcome</h2>
+<p>Luxury rooms, delicious food & best service</p>
+<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945">
+</div>
+</div>
+
+<!-- ROOMS -->
+<div id="rooms" class="section">
+<div class="card">
+<h2>Our Rooms</h2>
+
+<!-- PREVIEW -->
+<div class="grid">
+<div>
+<img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39">
+<h3>Single Room</h3>
+<button class="small-btn" onclick="roomDetail('single')">View Details</button>
+</div>
+
+<div>
+<img src="https://images.unsplash.com/photo-1590490360182-c33d57733427">
+<h3>Double Room</h3>
+<button class="small-btn" onclick="roomDetail('double')">View Details</button>
+</div>
+
+<div>
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+<h3>Deluxe Room</h3>
+<button class="small-btn" onclick="roomDetail('deluxe')">View Details</button>
+</div>
+</div>
+
+<div id="roomInfo"></div>
+</div>
+</div>
+
+<!-- FOOD -->
+<div id="food" class="section">
+<div class="card">
+<h2>Food Categories</h2>
+
+<!-- CATEGORY PREVIEW -->
+<div class="grid">
+<div>
+<img src="https://images.unsplash.com/photo-1604382355076-af4b0eb60143">
+<h3>Fast Food</h3>
+<button class="small-btn" onclick="foodDetail('fast')">View Items</button>
+</div>
+
+<div>
+<img src="https://images.unsplash.com/photo-1604909053196-9c3d6c2f8a27">
+<h3>Veg</h3>
+<button class="small-btn" onclick="foodDetail('veg')">View Items</button>
+</div>
+
+<div>
+<img src="https://images.unsplash.com/photo-1628294895950-9805252327bc">
+<h3>Non-Veg</h3>
+<button class="small-btn" onclick="foodDetail('nonveg')">View Items</button>
+</div>
+
+<div>
+<img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87">
+<h3>Drinks</h3>
+<button class="small-btn" onclick="foodDetail('drinks')">View Items</button>
+</div>
+</div>
+
+<div id="foodInfo"></div>
+</div>
+</div>
+
+<!-- STAFF -->
+<div id="staff" class="section">
+<div class="card">
+<h2>Staff & Emergency</h2>
+<p>👨‍💼 Reception</p>
+<p>👨‍🍳 Chef</p>
+<p>🧹 Housekeeping</p>
+<hr>
+<p>🚑 Medical: 108</p>
+<p>🔥 Fire: 101</p>
+<p>📞 Manager: 9999</p>
+</div>
+</div>
+
+<!-- BOOKING -->
+<div id="booking" class="section">
+<div class="card">
+<h2>Room Booking</h2>
+<input placeholder="Name"><br><br>
+<input placeholder="Mobile"><br><br>
+<select>
+<option>Single</option>
+<option>Double</option>
+<option>Deluxe</option>
+</select><br><br>
+<input type="date"><br><br>
+<button onclick="alert('Booking Successful')">Book Now</button>
+</div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="section">
+<div class="card">
+<h2>Contact Us</h2>
+<p>📍 Patna, Bihar</p>
+<p>📞 9876543210</p>
+<p>📧 hotel@gmail.com</p>
+</div>
+</div>
+
+<footer>
+<p>© 2026 Hotel Paradise</p>
+</footer>
+
+<script>
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+/* ROOM DETAILS */
+function roomDetail(type){
+let d={
+single:`
+<h3>Single Room Details</h3>
+<div class="grid">
+<img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39">
+<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b">
+</div>
+<p>✔ Attached Bathroom ✔ Fan ✔ WiFi</p>`,
+
+double:`
+<h3>Double Room Details</h3>
+<div class="grid">
+<img src="https://images.unsplash.com/photo-1590490360182-c33d57733427">
+<img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf">
+</div>
+<p>✔ Bathroom ✔ Sofa ✔ TV ✔ WiFi</p>`,
+
+deluxe:`
+<h3>Deluxe Room Details</h3>
+<div class="grid">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+<img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc">
+</div>
+<p>✔ AC ✔ Sofa ✔ TV ✔ Luxury Bathroom ✔ WiFi</p>`
+};
+document.getElementById("roomInfo").innerHTML=d[type];
+}
+
+/* FOOD DETAILS */
+function foodDetail(type){
+let d={
+fast:`
+<h3>Fast Food</h3>
+<div class="grid">
+<img src="https://images.unsplash.com/photo-1604382355076-af4b0eb60143">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38">
+<img src="https://images.unsplash.com/photo-1633945274309-2c16c9682f2d">
+<img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec">
+</div>`,
+
+veg:`
+<h3>Veg Items</h3>
+<div class="grid">
+<img src="https://images.unsplash.com/photo-1604909053196-9c3d6c2f8a27">
+<img src="https://images.unsplash.com/photo-1601924582975-7f89a24de94c">
+<img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8a1c">
+<img src="https://images.unsplash.com/photo-1600628422019-6c6a94d9e07b">
+<img src="https://images.unsplash.com/photo-1631515242679-48b7c4f6d8d6">
+</div>`,
+
+nonveg:`
+<h3>Non-Veg Items</h3>
+<div class="grid">
+<img src="https://images.unsplash.com/photo-1628294895950-9805252327bc">
+<img src="https://images.unsplash.com/photo-1589308078053-fbcb22c2b4b4">
+<img src="https://images.unsplash.com/photo-1605478580709-4f0a9fbc3e43">
+<img src="https://images.unsplash.com/photo-1604908177522-3c05e8c50b99">
+<img src="https://images.unsplash.com/photo-1626776877173-1f79f1a3dcbf">
+</div>`,
+
+drinks:`
+<h3>Drinks</h3>
+<div class="grid">
+<img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87">
+<img src="https://images.unsplash.com/photo-1510626176961-4b37d6afba1e">
+<img src="https://images.unsplash.com/photo-1544145945-f90425340c7e">
+<img src="https://images.unsplash.com/photo-1532635241-17e820acc59f">
+<img src="https://images.unsplash.com/photo-1527169402691-a3fb6f6e2c16">
+</div>`
+};
+document.getElementById("foodInfo").innerHTML=d[type];
+}
+</script>
+
+</body>
+</html>
